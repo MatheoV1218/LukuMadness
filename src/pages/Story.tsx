@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/story.css";
+import storyhero from "../assets/lukuinside.jpg";
 
 const Story = () => {
   return (
@@ -8,7 +9,12 @@ const Story = () => {
       <Navbar />
 
       {/* HERO */}
-      <section className="story-hero">
+      <section
+        className="story-hero"
+        style={{
+          backgroundImage: `url(${storyhero})`,
+        }}
+      >
         <div className="story-hero-overlay"></div>
 
         <div className="story-hero-content">
@@ -16,13 +22,12 @@ const Story = () => {
 
           <h1>
             More Than A Café.
-            <br />
-            A Greek Experience.
+            <br />A Greek Experience.
           </h1>
 
           <p>
-            Built around passion, hospitality, handcrafted desserts,
-            and unforgettable moments.
+            Built around passion, hospitality, handcrafted desserts, and
+            unforgettable moments.
           </p>
         </div>
       </section>
@@ -35,25 +40,22 @@ const Story = () => {
 
             <p>
               LukuMadness was created from a deep passion for authentic Greek
-              culture, handcrafted desserts, and bringing people together through
-              unforgettable food. What started as a dream quickly became a
-              destination where friends, families, and dessert lovers could
+              culture, handcrafted desserts, and bringing people together
+              through unforgettable food. What started as a dream quickly became
+              a destination where friends, families, and dessert lovers could
               experience the warmth and energy of Greece right here in New York.
             </p>
 
             <p>
-              Inspired by traditional Greek street cafés and modern Mediterranean
-              aesthetics, LukuMadness blends premium ingredients, handcrafted
-              drinks, and fresh-made lukumades into an atmosphere designed to feel
-              welcoming, energetic, and alive.
+              Inspired by traditional Greek street cafés and modern
+              Mediterranean aesthetics, LukuMadness blends premium ingredients,
+              handcrafted drinks, and fresh-made lukumades into an atmosphere
+              designed to feel welcoming, energetic, and alive.
             </p>
           </div>
 
           <div className="story-image">
-            <img
-              src="https://placehold.co/700x900"
-              alt="Restaurant"
-            />
+            <img src="https://placehold.co/700x900" alt="Restaurant" />
           </div>
         </div>
       </section>
@@ -62,10 +64,7 @@ const Story = () => {
       <section className="story-section alt-section">
         <div className="story-grid reverse">
           <div className="story-image">
-            <img
-              src="https://placehold.co/900x700"
-              alt="Desserts"
-            />
+            <img src="https://placehold.co/900x700" alt="Desserts" />
           </div>
 
           <div className="story-text">
@@ -75,13 +74,14 @@ const Story = () => {
               Every dessert is prepared with care, every coffee is crafted with
               precision, and every guest is treated like family. From our
               signature chocolate-drizzled lukumades to our premium pistachio
-              creations, our menu was designed to offer something truly different.
+              creations, our menu was designed to offer something truly
+              different.
             </p>
 
             <p>
-              We believe food should do more than taste amazing — it should create
-              memories. Every plate that leaves our kitchen represents our passion
-              for quality, creativity, and authentic flavor.
+              We believe food should do more than taste amazing — it should
+              create memories. Every plate that leaves our kitchen represents
+              our passion for quality, creativity, and authentic flavor.
             </p>
 
             <p>
@@ -113,15 +113,16 @@ const Story = () => {
             <h2>The LukuMadness Vision</h2>
 
             <p>
-              As our community continues to grow, so does our vision. LukuMadness
-              is more than just a café — it’s an experience built around energy,
-              hospitality, creativity, and unforgettable flavors.
+              As our community continues to grow, so does our vision.
+              LukuMadness is more than just a café — it’s an experience built
+              around energy, hospitality, creativity, and unforgettable flavors.
             </p>
 
             <p>
-              Whether you're stopping in for your morning coffee, grabbing dessert
-              late at night with friends, or discovering Greek flavors for the
-              first time, we’re proud to welcome you into the LukuMadness family.
+              Whether you're stopping in for your morning coffee, grabbing
+              dessert late at night with friends, or discovering Greek flavors
+              for the first time, we’re proud to welcome you into the
+              LukuMadness family.
             </p>
 
             <p>
@@ -131,10 +132,7 @@ const Story = () => {
           </div>
 
           <div className="story-image">
-            <img
-              src="https://placehold.co/700x900"
-              alt="Coffee"
-            />
+            <img src="https://placehold.co/700x900" alt="Coffee" />
           </div>
         </div>
       </section>

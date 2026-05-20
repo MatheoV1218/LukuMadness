@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import logo from "../assets/lukulogo.png";
 
 import "../styles/navbar.css";
 
@@ -14,31 +15,22 @@ const Navbar = () => {
 
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-
         {/* LEFT SIDE */}
         <div className="navbar-left">
-          <Link
-            to="/"
-            className="logo"
-            onClick={handleNavigation}
-          >
-            <img
-              src="https://placehold.co/120x120"
-              alt="LukuMadness Logo"
-            />
+          <Link to="/" className="logo" onClick={handleNavigation}>
+            <img src={logo} alt="LukuMadness Logo" />
           </Link>
         </div>
 
         {/* DESKTOP NAV */}
         <div className="navbar-right">
-
           <div className="nav-links desktop-nav">
             <Link
               to="/"
@@ -103,7 +95,6 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-
         <Link
           to="/"
           className={location.pathname === "/" ? "active" : ""}

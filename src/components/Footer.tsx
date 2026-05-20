@@ -1,6 +1,7 @@
 import { FaFacebook, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { MdLocationOn, MdEmail } from "react-icons/md";
 import "../styles/footer.css";
+import logo from "../assets/lukulogo.png";
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
 
       <div className="footer-content">
         <div className="footer-logo-section">
-          <img src="https://placehold.co/150x150" alt="LukuMadness" />
+          <img src={logo} alt="LukuMadness" />
 
           <p>
             Fresh Greek desserts, premium coffee, and unforgettable café vibes.

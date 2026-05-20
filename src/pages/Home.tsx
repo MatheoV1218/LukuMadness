@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
+import hero from "../assets/lukuhero.jpg";
+import cta from "../assets/lukucta.jpg";
 
 const Home = () => {
   return (
@@ -9,7 +11,12 @@ const Home = () => {
       <Navbar />
 
       {/* HERO */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `url(${hero})`,
+        }}
+      >
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
@@ -75,7 +82,12 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="cta">
+      <section
+        className="cta"
+        style={{
+          backgroundImage: `url(${cta})`,
+        }}
+      >
         <div className="cta-content">
           <h2>Ready For Your Next Obsession?</h2>
 
