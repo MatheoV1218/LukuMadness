@@ -1,0 +1,264 @@
+.story-hero {
+  width: 100%;
+  min-height: 90vh;
+
+  position: relative;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),
+    url("https://placehold.co/1920x1080");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 120px 20px;
+}
+
+.story-hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1000px;
+}
+
+.story-hero-content span {
+  color: #ff7a00;
+
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.story-hero-content h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+
+  line-height: 0.95;
+
+  color: white;
+
+  margin: 1.5rem 0;
+}
+
+.story-hero-content p {
+  color: #ddd;
+
+  font-size: clamp(1rem, 2vw, 1.3rem);
+
+  line-height: 1.8;
+}
+
+/* ========================= */
+/* STORY SECTIONS */
+/* ========================= */
+
+.story-section {
+  padding: 7rem 2rem;
+
+  background: #f8f5f0;
+}
+
+.alt-section {
+  background: white;
+}
+
+.story-grid {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 5rem;
+
+  align-items: center;
+}
+
+.story-grid.reverse {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.story-text h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+  line-height: 0.95;
+
+  margin-bottom: 2rem;
+
+  color: #111;
+}
+
+.story-text p {
+  color: #555;
+
+  line-height: 1.9;
+
+  font-size: 1.05rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.story-image {
+  width: 100%;
+}
+
+.story-image img {
+  width: 100%;
+  height: 700px;
+
+  object-fit: cover;
+
+  border-radius: 30px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* ========================= */
+/* BANNER SECTION */
+/* ========================= */
+
+.story-banner {
+  width: 100%;
+  min-height: 60vh;
+
+  position: relative;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+    url("https://placehold.co/1920x1080");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 4rem 2rem;
+}
+
+.story-banner-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 900px;
+}
+
+.story-banner-content h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
+
+  color: white;
+
+  margin-bottom: 1.5rem;
+}
+
+.story-banner-content p {
+  color: #ddd;
+
+  font-size: clamp(1rem, 2vw, 1.2rem);
+
+  line-height: 1.8;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 1000px) {
+  .story-grid {
+    gap: 3rem;
+  }
+
+  .story-image img {
+    height: 550px;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .story-hero {
+    min-height: 80vh;
+
+    padding-top: 180px;
+  }
+
+  .story-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .story-grid,
+  .story-grid.reverse {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+  .story-grid.reverse .story-image {
+    order: -1;
+  }
+
+  .story-text {
+    text-align: center;
+  }
+
+  .story-text h2 {
+    font-size: 3rem;
+  }
+
+  .story-text p {
+    font-size: 1rem;
+  }
+
+  .story-image img {
+    height: 420px;
+  }
+
+  .story-banner {
+    min-height: 45vh;
+  }
+}
+
+/* ========================= */
+/* SMALL PHONES */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .story-hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .story-section {
+    padding: 4rem 1rem;
+  }
+
+  .story-text h2 {
+    font-size: 2.4rem;
+  }
+
+  .story-text p {
+    line-height: 1.8;
+  }
+
+  .story-image img {
+    height: 320px;
+
+    border-radius: 20px;
+  }
+
+  .story-banner-content h2 {
+    font-size: 2.5rem;
+  }
+}
