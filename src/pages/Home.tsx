@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 import "../styles/home.css";
 
 const Home = () => {
@@ -15,12 +16,14 @@ const Home = () => {
           <h1>GET YOUR LUKUMADNESS</h1>
 
           <p>
-            Authentic Greek desserts, handcrafted coffee,
-            and unforgettable café vibes.
+            Authentic Greek desserts, handcrafted coffee, and unforgettable café
+            vibes.
           </p>
 
           <div className="hero-buttons">
-            <a href="/menu">View Menu</a>
+            <Link to="/menu" className="hero-btn">
+              View Menu
+            </Link>
 
             <a
               href="https://order.chownow.com/order/39451/locations/59964?cn_channel=cn_website"
@@ -41,10 +44,7 @@ const Home = () => {
 
         <div className="featured-grid">
           <div className="featured-card">
-            <img
-              src="https://placehold.co/500x500"
-              alt=""
-            />
+            <img src="https://placehold.co/500x500" alt="" />
 
             <div className="featured-info">
               <h3>Chocolate Lukumades</h3>
@@ -55,30 +55,20 @@ const Home = () => {
           </div>
 
           <div className="featured-card">
-            <img
-              src="https://placehold.co/500x500"
-              alt=""
-            />
+            <img src="https://placehold.co/500x500" alt="" />
 
             <div className="featured-info">
               <h3>Pistachio Special</h3>
-              <p>
-                A creamy pistachio masterpiece with premium toppings.
-              </p>
+              <p>A creamy pistachio masterpiece with premium toppings.</p>
             </div>
           </div>
 
           <div className="featured-card">
-            <img
-              src="https://placehold.co/500x500"
-              alt=""
-            />
+            <img src="https://placehold.co/500x500" alt="" />
 
             <div className="featured-info">
               <h3>Signature Coffee</h3>
-              <p>
-                Fresh roasted espresso crafted to perfection.
-              </p>
+              <p>Fresh roasted espresso crafted to perfection.</p>
             </div>
           </div>
         </div>
