@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/story.css";
 import storyhero from "../assets/lukuinside.jpg";
+// comment for vercel deployment
 
 const Story = () => {
   return (

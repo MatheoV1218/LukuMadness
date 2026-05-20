@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 import hero from "../assets/lukuhero.jpg";
 import cta from "../assets/lukucta.jpg";
-
+// comment for vercel deployment
 const Home = () => {
   return (
     <>
