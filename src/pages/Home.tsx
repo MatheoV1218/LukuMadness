@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 import hero from "../assets/lukuhero.jpg";
 import cta from "../assets/lukucta.jpg";
-import lukuvid from "../assets/lukuvid.mp4";
+import video from "../assets/video.mp4";
 // comment for vercel deployment
 const Home = () => {
   return (
@@ -53,7 +53,7 @@ const Home = () => {
         <div className="featured-grid">
           <div className="featured-card featured-video-card">
             <video
-              src={lukuvid}
+              src={video}
               autoPlay
               muted
               loop
