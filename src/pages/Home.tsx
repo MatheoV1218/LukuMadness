@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 import hero from "../assets/lukuhero.jpg";
 import cta from "../assets/lukucta.jpg";
-import lukuvid from "../assets/lukuVid.mp4";
+import lukuvid from "../assets/lukuvid.mp4";
 // comment for vercel deployment
 const Home = () => {
   return (
