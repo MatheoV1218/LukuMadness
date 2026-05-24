@@ -37,21 +37,22 @@ const Story = () => {
       <section className="story-section">
         <div className="story-grid">
           <div className="story-text">
-            <h2>Where It All Started</h2>
+            <h2>Our story</h2>
 
             <p>
-              LukuMadness was created from a deep passion for authentic Greek
-              culture, handcrafted desserts, and bringing people together
-              through unforgettable food. What started as a dream quickly became
-              a destination where friends, families, and dessert lovers could
-              experience the warmth and energy of Greece right here in New York.
+              Indulge in the exquisite flavors of Greece at Lukumadness USA, the
+              ultimate cafe and Greek desserts destination. Get ready to embark
+              on a delightful culinary journey that will take your taste buds on
+              a Mediterranean adventure like no other.
             </p>
 
             <p>
-              Inspired by traditional Greek street cafés and modern
-              Mediterranean aesthetics, LukuMadness blends premium ingredients,
-              handcrafted drinks, and fresh-made lukumades into an atmosphere
-              designed to feel welcoming, energetic, and alive.
+              At Lukumadness USA, we are passionate about bringing the authentic
+              taste of Greece to the heart of the USA. Our cafe is a haven for
+              dessert enthusiasts and anyone with a sweet tooth looking to savor
+              traditional Greek delicacies. Whether you’re a seasoned fan of
+              Greek cuisine or new to the flavors, our menu has something to
+              satisfy every palate.
             </p>
           </div>
 

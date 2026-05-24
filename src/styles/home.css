@@ -125,38 +125,58 @@
 
 .featured-grid {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
 
-  margin: auto;
+  margin: 0 auto;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
 
   gap: 2rem;
 }
 
 .featured-card {
-  background: white;
-  border-radius: 28px;
+  width: 100%;
+  max-width: 320px;
 
+  background: white;
+
+  border-radius: 30px;
   overflow: hidden;
 
-  transition: 0.4s ease;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 
   display: flex;
   flex-direction: column;
+
+  transition: 0.4s ease;
 }
 
 .featured-card:hover {
   transform: translateY(-8px);
 }
 
+.featured-card .featured-info {
+  flex: 1;
+
+  padding: 2rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
+}
+
 .featured-card img {
   width: 100%;
-  height: 320px;
+  height: 260px;
+
   object-fit: cover;
+
+  display: block;
 }
 
 .featured-info {
@@ -189,14 +209,38 @@
 .cta {
   padding: 7rem 2rem;
 
-  background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url("https://placehold.co/1920x1080");
-
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   text-align: center;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.45)
+    );
+
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
 }
 
 .cta-content h2 {
@@ -332,5 +376,89 @@
 
   .featured-info p {
     line-height: 1.6;
+  }
+}
+
+.featured-video-card {
+  width: 100%;
+  max-width: 320px;
+
+  background: white;
+
+  border-radius: 30px;
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-video-card .featured-info {
+  flex: 1;
+
+  padding: 2rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-video-card video {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.featured-card,
+.featured-video-card {
+  width: 100%;
+  max-width: 320px;
+
+  margin: 0 auto;
+
+  background: white;
+
+  border-radius: 30px;
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .featured-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featured-card,
+  .featured-video-card {
+    max-width: 340px;
+    width: 100%;
+  }
+
+  .featured-card img,
+  .featured-video-card video {
+    height: 260px;
+  }
+
+  .featured-info {
+    padding: 1.5rem;
+  }
+
+  .featured-info h3 {
+    font-size: 2rem;
+  }
+
+  .featured-info p {
+    font-size: 1rem;
   }
 }

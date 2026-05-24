@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 import hero from "../assets/lukuhero.jpg";
 import cta from "../assets/lukucta.jpg";
+import lukuvid from "../assets/lukuvid.mp4";
 // comment for vercel deployment
 const Home = () => {
   return (
@@ -50,14 +51,19 @@ const Home = () => {
         </div>
 
         <div className="featured-grid">
-          <div className="featured-card">
-            <img src="https://placehold.co/500x500" alt="" />
+          <div className="featured-card featured-video-card">
+            <video
+              src={lukuvid}
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
 
             <div className="featured-info">
-              <h3>Chocolate Lukumades</h3>
-              <p>
-                Crispy Greek donut bites topped with rich chocolate drizzle.
-              </p>
+              <h3>Fresh Lukumades</h3>
+
+              <p>Handcrafted Greek donut bites made fresh daily.</p>
             </div>
           </div>
 
@@ -88,6 +94,7 @@ const Home = () => {
           backgroundImage: `url(${cta})`,
         }}
       >
+        <div className="cta-overlay"></div>
         <div className="cta-content">
           <h2>Ready For Your Next Obsession?</h2>
 
