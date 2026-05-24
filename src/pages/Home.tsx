@@ -58,6 +58,8 @@ const Home = () => {
               muted
               loop
               playsInline
+              webkit-playsinline
+              preload="auto"
             />
 
             <div className="featured-info">
