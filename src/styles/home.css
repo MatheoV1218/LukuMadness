@@ -462,6 +462,3 @@
     font-size: 1rem;
   }
 }
-.featured-video-card video {
-  pointer-events: none;
-}
