@@ -7,7 +7,7 @@ import cannoli from "../assets/canoli.jpg";
 import caramelPecan from "../assets/caramelpeacanbar.jpg";
 import cremeBrulee from "../assets/cremeburleyberry.jpg";
 import croissant from "../assets/croisant.jpg";
-import dubaiLuku from "../assets/dubailukumadness.jpg";
+import dubaiLuku from "../assets/dubaiLukumadness.jpg";
 import ekmek from "../assets/ekmek.jpg";
 import espresso from "../assets/espresso.jpg";
 import falafel from "../assets/flafle.jpg";
