@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/story.css";
 import storyhero from "../assets/lukuinside.jpg";
+import mixeditem from "../assets/mixeditem2.jpg";
 // comment for vercel deployment
 
 const Story = () => {
@@ -95,7 +96,15 @@ const Story = () => {
       </section>
 
       {/* FULL IMAGE BREAK */}
-      <section className="story-banner">
+      <section
+        className="story-banner"
+        style={{
+          backgroundImage: `
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+      url(${mixeditem})
+    `,
+        }}
+      >
         <div className="story-banner-overlay"></div>
 
         <div className="story-banner-content">

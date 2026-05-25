@@ -144,10 +144,6 @@
 
   position: relative;
 
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-    url("https://placehold.co/1920x1080");
-
   background-size: cover;
   background-position: center;
 

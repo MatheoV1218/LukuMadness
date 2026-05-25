@@ -1,3 +1,37 @@
+import baklava from "../assets/baklva.jpg";
+
+import berryTart from "../assets/bberrytartcake.jpg";
+import bomboloni from "../assets/bomboloni.jpg";
+import bougatsa from "../assets/bougatsa.jpg";
+import cannoli from "../assets/canoli.jpg";
+import caramelPecan from "../assets/caramelpeacanbar.jpg";
+import cremeBrulee from "../assets/cremeburleyberry.jpg";
+import croissant from "../assets/croisant.jpg";
+import dubaiLuku from "../assets/dubailukumadness.jpg";
+import ekmek from "../assets/ekmek.jpg";
+import espresso from "../assets/espresso.jpg";
+import falafel from "../assets/flafle.jpg";
+import frappe from "../assets/frappucino24oz.jpg";
+import goatCheese from "../assets/goatcheesesalad.jpg";
+import greekFrappe from "../assets/greekfrappe24oz.jpg";
+import greekSalad from "../assets/greeksalad.jpg";
+import kataifi from "../assets/katifi.jpg";
+import latte from "../assets/latte cappucino.jpg";
+import lemonade from "../assets/lemonade.jpg";
+import macaron from "../assets/macroons6box.jpg";
+import mangoEclair from "../assets/mangoandpassionfruiteclaire.jpg";
+import napoleon from "../assets/napoliancake.jpg";
+import orangeBomb from "../assets/orangeBomb.jpg";
+import pistachioCheesecake from "../assets/pastaciocheesecake.jpg";
+import pastrami from "../assets/pastramihotpanini.jpg";
+import ricotta from "../assets/ricottacake.jpg";
+import smores from "../assets/smores.jpg";
+import spinikopita from "../assets/spinikopitsa.jpg";
+import traditional from "../assets/traditionalluku.jpg";
+import vanillaEclair from "../assets/vanillaeclaire.jpg";
+
+
+
 const placeholder =
   "https://placehold.co/600x600/e9e5df/1a1a1a?text=LukuMadness";
 
@@ -10,7 +44,7 @@ const menuData = [
         price: "$18.24",
         description:
           "House mayo, provolone, pastrami, pickled jalapeños, sauteed onions.",
-        image: placeholder,
+        image: pastrami,
         popular: "#1 most liked",
       },
       {
@@ -18,7 +52,7 @@ const menuData = [
         price: "$13.49",
         description:
           "Traditional Lukumadness donuts with honey, cinnamon and crushed walnuts.",
-        image: placeholder,
+        image: traditional,
         popular: "#2 most liked",
       },
       {
@@ -26,7 +60,7 @@ const menuData = [
         price: "$20.00",
         description:
           "Indulge in Greek doughnuts topped with Nutella, pistachio drizzle, crushed pistachio and kataifi.",
-        image: placeholder,
+        image: dubaiLuku,
         popular: "#3 most liked",
       },
       {
@@ -34,7 +68,8 @@ const menuData = [
         price: "$12.16",
         description:
           "Turkish-style bread, soft and crusty on the outside, soft inside.",
-        image: placeholder,
+        image: ekmek,
+        popular: "#4 most liked",
       },
     ],
   },
@@ -46,27 +81,27 @@ const menuData = [
         name: "Spinach Feta Pie (Spanakopita)",
         price: "$12.99",
         description: "Flaky pastry filled with spinach and cheese.",
-        image: placeholder,
+        image: spinikopita,
       },
       {
         name: "Bomboloni Bavarian",
         price: "$12.49",
         description: "Sweet Italian doughnuts filled with creamy Bavarian cream.",
-        image: placeholder,
+        image: bomboloni,
       },
       {
         name: "Bougatsa - Greek Custard Sweet",
         price: "$14.59",
         description:
           "Crispy layers of golden phyllo pastry filled with warm, creamy custard and powdered sugar.",
-        image: placeholder,
+        image: bougatsa,
       },
       {
         name: "Ekmek",
         price: "$12.16",
         description:
           "Turkish-style bread, soft and crusty on the outside, soft inside.",
-        image: placeholder,
+        image: ekmek,
       },
       {
         name: "Cappuccino 16 oz",
@@ -91,7 +126,7 @@ const menuData = [
         price: "$20.00",
         description:
           "Indulge in Greek doughnuts topped with Nutella, pistachio drizzle, crushed pistachio and kataifi.",
-        image: placeholder,
+        image: dubaiLuku,
       },
       {
         name: "Lukumadness Fruit Symphony",
@@ -110,7 +145,7 @@ const menuData = [
         price: "$13.49",
         description:
           "Traditional Lukumadness donuts with honey, cinnamon and crushed walnuts.",
-        image: placeholder,
+        image: traditional,
       },
       {
         name: "Lukumadness Dulce De Leche",
@@ -123,7 +158,7 @@ const menuData = [
         price: "$17.55",
         description:
           "Greek doughnuts filled with chocolate and topped with marshmallows.",
-        image: placeholder,
+        image: smores,
       },
       {
         name: "Lukumadness Gold'n Cream",
@@ -172,13 +207,13 @@ const menuData = [
         name: "Latte 16 oz",
         price: "$6.75",
         description: "Rich and smooth espresso-style coffee in a 16 oz serving.",
-        image: placeholder,
+        image: espresso,
       },
       {
         name: "Latte 20 oz",
         price: "$7.42",
         description: "Rich and smooth coffee in a 20 oz serving.",
-        image: placeholder,
+        image: latte,
       },
       {
         name: "Brewed Coffee 16 oz",
@@ -306,14 +341,14 @@ const menuData = [
         name: "Greek Frappe 16 oz",
         price: "$8.45",
         description: "Rich and creamy coffee drink with a refreshing twist.",
-        image: placeholder,
+        image: frappe,
       },
       {
         name: "Greek Frappe 24 oz",
         price: "$9.80",
         description:
           "Foamy and refreshing Greek-style iced coffee in a 24 oz serving.",
-        image: placeholder,
+        image: greekFrappe,
         popular: "Popular",
       },
       {
@@ -326,19 +361,19 @@ const menuData = [
         name: "Frappuccino 24 oz",
         price: "$9.80",
         description: "Cold and refreshing coffee drink in a large 24 oz serving.",
-        image: placeholder,
+        image: frappe,
       },
       {
         name: "Fresh Lemonade 16 oz",
         price: "$4.73",
         description: "Refreshing drink made with lemon.",
-        image: placeholder,
+        image: lemonade,
       },
       {
         name: "Fresh Lemonade 24 oz",
         price: "$5.41",
         description: "Refreshing lemonade served over ice in a 24 oz cup.",
-        image: placeholder,
+        image: lemonade,
       },
       {
         name: "Iced Coffee 16 oz",
@@ -459,7 +494,7 @@ const menuData = [
         price: "$9.99",
         description:
           "Italian-style doughnuts typically filled with a sweet surprise.",
-        image: placeholder,
+        image: bomboloni,
       },
       {
         name: "Bomboloni Bavarian",
@@ -484,26 +519,26 @@ const menuData = [
         name: "Ricotta & Pistachio Cake",
         price: "$10.39",
         description: "Contain nuts.",
-        image: placeholder,
+        image: ricotta,
       },
       {
         name: "Pistachio Cheesecake",
         price: "$11.69",
         description: "Contain nuts.",
-        image: placeholder,
+        image: pistachioCheesecake,
       },
       {
         name: "Croissant Classic",
         price: "$5.85",
         description: "Flaky, buttery pastry.",
-        image: placeholder,
+        image: croissant,
       },
       {
         name: "Creme Brulee & Berries Glass",
         price: "$12.17",
         description:
           "Rich creamy custard base topped with caramelized sugar and mixed berries.",
-        image: placeholder,
+        image: cremeBrulee,
       },
       {
         name: "Coppa Rasberries & Cream Glass",
@@ -516,13 +551,13 @@ const menuData = [
         name: "Sicilian Cannoli",
         price: "$10.39",
         description: "Crisp, fried pastry shells filled with sweet ricotta cheese.",
-        image: placeholder,
+        image: cannoli,
       },
       {
         name: "Caramel Pecan Bars",
         price: "$9.09",
         description: "Contain nuts.",
-        image: placeholder,
+        image: caramelPecan,
       },
       {
         name: "Truffle Brownie Bars",
@@ -541,7 +576,7 @@ const menuData = [
         price: "$7.79",
         description:
           "Light and airy pastry filled with a sweet mango and passion fruit cream.",
-        image: placeholder,
+        image: mangoEclair,
       },
       {
         name: "Eclair Chocolate",
@@ -556,7 +591,7 @@ const menuData = [
         price: "$7.79",
         description:
           "Light and airy pastry filled with a sweet vanilla cream.",
-        image: placeholder,
+        image: vanillaEclair,
       },
       {
         name: "Eclair Paris Brest",
@@ -569,13 +604,13 @@ const menuData = [
         price: "$26.00",
         description:
           "Box of 6 assorted macarons with delicate shells and soft filling.",
-        image: placeholder,
+        image: macaron,
       },
       {
         name: "Baklava Piece",
         price: "$8.85",
         description: "Sweet pastry layers filled with nuts.",
-        image: placeholder,
+        image: baklava,
         popular: "Popular",
       },
       {
@@ -588,47 +623,47 @@ const menuData = [
         name: "Orange Bomb",
         price: "$11.69",
         description: "Moist orange-flavored treat.",
-        image: placeholder,
+        image: orangeBomb,
       },
       {
         name: "Ekmek",
         price: "$12.16",
         description:
           "Turkish-style bread, soft and crusty on the outside, soft inside.",
-        image: placeholder,
+        image: ekmek,
       },
       {
         name: "Bougatsa - Greek Custard Sweet",
         price: "$14.59",
         description:
           "Crispy layers of golden phyllo pastry filled with warm, creamy custard and powdered sugar.",
-        image: placeholder,
+        image: bougatsa,
       },
       {
         name: "Kataifi",
         price: "$11.99",
         description:
           "Golden, crispy shredded phyllo pastry wrapped around a sweet nut filling.",
-        image: placeholder,
+        image: kataifi,
       },
       {
         name: "Croissant Pistachio",
         price: "$8.11",
         description: "Pistachio drizzle & crushed pistachio.",
-        image: placeholder,
+        image: croissant,
       },
       {
         name: "Croissant Mount Olympus",
         price: "$7.44",
         description:
           "Topped with white chocolate, dark chocolate & crushed almonds.",
-        image: placeholder,
+        image: croissant,
       },
       {
         name: "Napoleon",
         price: "$10.39",
         description: "Layered pastry filled with sweet cream.",
-        image: placeholder,
+        image: napoleon,
       },
       {
         name: "1 Macaron",
@@ -647,7 +682,7 @@ const menuData = [
         name: "Berry Tart",
         price: "$12.16",
         description: "Sweet and tangy mix of berries in a flaky pastry crust.",
-        image: placeholder,
+        image: berryTart,
       },
     ],
   },
@@ -678,7 +713,7 @@ const menuData = [
         price: "$26.00",
         description:
           "Box of 6 assorted macarons with delicate shells and soft filling.",
-        image: placeholder,
+        image: macaron,
       },
       {
         name: "Tiramisu Cake - Gluten Free",
@@ -717,7 +752,7 @@ const menuData = [
         price: "$18.24",
         description:
           "House mayo, provolone, pastrami, pickled jalapeños, sauteed onions.",
-        image: placeholder,
+        image: pastrami,
       },
       {
         name: "Prosciutto Di Parma Panini Sandwich",
@@ -759,14 +794,14 @@ const menuData = [
         price: "$18.59",
         description:
           "Crispy vegan falafel with smooth hummus, creamy tahini, extra virgin olive oil.",
-        image: placeholder,
+        image: falafel,
       },
       {
         name: "Greek Salad",
         price: "$18.49",
         description:
           "Fresh mix of lettuce, tomatoes, cucumbers, feta cheese, and olives.",
-        image: placeholder,
+        image: greekSalad,
         popular: "Popular",
       },
       {
@@ -774,7 +809,7 @@ const menuData = [
         price: "$18.58",
         description:
           "Contain nuts. Fresh mixed greens, tomatoes, fresh pears, dried cranberries.",
-        image: placeholder,
+        image: goatCheese,
       },
       {
         name: "Chicken Salad",
@@ -942,7 +977,7 @@ const menuData = [
         price: "$18.49",
         description:
           "Fresh mix of lettuce, tomatoes, cucumbers, feta cheese, and olives.",
-        image: placeholder,
+        image: greekSalad,
         popular: "Popular",
       },
       {

@@ -2,10 +2,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
+
 import hero from "../assets/lukuhero.jpg";
 import cta from "../assets/lukucta.jpg";
+
 import video from "../assets/video.mp4";
-// comment for vercel deployment
+import video2 from "../assets/lukuvid2.mp4";
+
+import smores from "../assets/smores.jpg";
+
 const Home = () => {
   return (
     <>
@@ -51,6 +56,8 @@ const Home = () => {
         </div>
 
         <div className="featured-grid">
+
+          {/* CARD 1 */}
           <div className="featured-card featured-video-card">
             <video
               src={video}
@@ -65,27 +72,49 @@ const Home = () => {
             <div className="featured-info">
               <h3>Fresh Lukumades</h3>
 
-              <p>Handcrafted Greek donut bites made fresh daily.</p>
+              <p>
+                Handcrafted Greek donut bites drizzled fresh with warm honey
+                and made to order.
+              </p>
             </div>
           </div>
 
+          {/* CARD 2 */}
           <div className="featured-card">
-            <img src="https://placehold.co/500x500" alt="" />
+            <img src={smores} alt="Smores Lukumades" />
 
             <div className="featured-info">
-              <h3>Pistachio Special</h3>
-              <p>A creamy pistachio masterpiece with premium toppings.</p>
+              <h3>Smores Madness</h3>
+
+              <p>
+                Fluffy Greek donut bites loaded with melted chocolate,
+                marshmallows, and rich graham crumble.
+              </p>
             </div>
           </div>
 
-          <div className="featured-card">
-            <img src="https://placehold.co/500x500" alt="" />
+          {/* CARD 3 */}
+          <div className="featured-card featured-video-card">
+            <video
+              src={video2}
+              autoPlay
+              muted
+              loop
+              playsInline
+              webkit-playsinline
+              preload="auto"
+            />
 
             <div className="featured-info">
-              <h3>Signature Coffee</h3>
-              <p>Fresh roasted espresso crafted to perfection.</p>
+              <h3>Dubai Madness Drink</h3>
+
+              <p>
+                A creamy iced espresso creation layered with rich chocolate,
+                smooth foam, and luxurious Dubai-inspired flavor.
+              </p>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -97,6 +126,7 @@ const Home = () => {
         }}
       >
         <div className="cta-overlay"></div>
+
         <div className="cta-content">
           <h2>Ready For Your Next Obsession?</h2>
 
