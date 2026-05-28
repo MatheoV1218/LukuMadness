@@ -57,7 +57,7 @@ const Navbar = () => {
             </Link>
 
             <a
-              href="https://order.chownow.com/order/39451/locations/59964?cn_channel=cn_website"
+              href="https://www.grubhub.com/restaurant/lukumadness-850-n-broadway-white-plains/10872048"
               target="_blank"
               rel="noreferrer"
             >
