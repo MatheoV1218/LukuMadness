@@ -1,4 +1,4 @@
-import "../styles/orderModal.css";
+import "../styles/OrderModal.css";
 
 type Props = {
   isOpen: boolean;
