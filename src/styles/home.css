@@ -462,3 +462,60 @@
     font-size: 1rem;
   }
 }
+
+.hero-order-btn,
+.cta-order-btn {
+  padding: 1rem 2rem;
+
+  border-radius: 999px;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition: 0.3s ease;
+}
+
+.hero-order-btn {
+  padding: 1rem 2rem;
+  border-radius: 999px;
+
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.cta-order-btn {
+  background: #ff7a00;
+  color: white;
+}
+
+.hero-order-btn:hover,
+.cta-order-btn:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-buttons a,
+  .hero-order-btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}

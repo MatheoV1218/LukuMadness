@@ -11,7 +11,11 @@ import video2 from "../assets/lukuvid2.mp4";
 
 import smores from "../assets/smores.jpg";
 
+import { useState } from "react";
+import OrderModal from "../components/OrderModal";
+
 const Home = () => {
+  const [showOrderModal, setShowOrderModal] = useState(false);
   return (
     <>
       <Navbar />
@@ -38,12 +42,12 @@ const Home = () => {
               View Menu
             </Link>
 
-            <a
-              href="https://www.grubhub.com/restaurant/lukumadness-850-n-broadway-white-plains/10872048"
-              target="_blank"
+            <button
+              className="hero-order-btn"
+              onClick={() => setShowOrderModal(true)}
             >
               Order Online
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -56,7 +60,6 @@ const Home = () => {
         </div>
 
         <div className="featured-grid">
-
           {/* CARD 1 */}
           <div className="featured-card featured-video-card">
             <video
@@ -73,8 +76,8 @@ const Home = () => {
               <h3>Fresh Lukumades</h3>
 
               <p>
-                Handcrafted Greek donut bites drizzled fresh with warm honey
-                and made to order.
+                Handcrafted Greek donut bites drizzled fresh with warm honey and
+                made to order.
               </p>
             </div>
           </div>
@@ -114,7 +117,6 @@ const Home = () => {
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -130,14 +132,18 @@ const Home = () => {
         <div className="cta-content">
           <h2>Ready For Your Next Obsession?</h2>
 
-          <a
-            href="https://www.grubhub.com/restaurant/lukumadness-850-n-broadway-white-plains/10872048"
-            target="_blank"
+          <button
+            className="cta-order-btn"
+            onClick={() => setShowOrderModal(true)}
           >
             Order Now
-          </a>
+          </button>
         </div>
       </section>
+      <OrderModal
+        isOpen={showOrderModal}
+        onClose={() => setShowOrderModal(false)}
+      />
 
       <Footer />
     </>
