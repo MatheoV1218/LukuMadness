@@ -3,6 +3,9 @@ import Footer from "../components/Footer";
 import "../styles/story.css";
 import storyhero from "../assets/lukuinside.jpg";
 import mixeditem from "../assets/mixeditem2.jpg";
+import about1 from "../assets/About1.jpeg";
+import about2 from "../assets/About2.jpeg";
+import about3 from "../assets/About3.jpeg";
 // comment for vercel deployment
 
 const Story = () => {
@@ -58,7 +61,7 @@ const Story = () => {
           </div>
 
           <div className="story-image">
-            <img src="https://placehold.co/700x900" alt="Restaurant" />
+            <img src={about1} alt="Inside LukuMadness cafe" />
           </div>
         </div>
       </section>
@@ -67,7 +70,7 @@ const Story = () => {
       <section className="story-section alt-section">
         <div className="story-grid reverse">
           <div className="story-image">
-            <img src="https://placehold.co/900x700" alt="Desserts" />
+            <img src={about2} alt="Handcrafted Greek desserts" />
           </div>
 
           <div className="story-text">
@@ -143,7 +146,7 @@ const Story = () => {
           </div>
 
           <div className="story-image">
-            <img src="https://placehold.co/700x900" alt="Coffee" />
+            <img src={about3} alt="LukuMadness coffee and community" />
           </div>
         </div>
       </section>
