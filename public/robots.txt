@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luku-madness.vercel.app/sitemap.xml
+Sitemap: https://www.lukumadnessusa.com/sitemap.xml

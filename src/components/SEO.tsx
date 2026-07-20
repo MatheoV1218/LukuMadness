@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://luku-madness.vercel.app";
+const SITE_URL = "https://www.lukumadnessusa.com";
 const DEFAULT_IMAGE = `${SITE_URL}/publiclukulogo.png`;
 
 type Props = {
