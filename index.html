@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
 
-    <link rel="icon" type="image/png" href="/publiclukulogo.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -14,6 +14,10 @@
       name="description"
       content="Authentic Greek desserts, handcrafted coffee, and unforgettable café vibes at LukuMadness USA."
     />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://luku-madness.vercel.app/" />
 
     <!-- Open Graph (Discord, iMessage, Facebook, etc.) -->
     <meta property="og:title" content="LukuMadness USA" />
@@ -31,6 +35,8 @@
     <meta property="og:url" content="https://luku-madness.vercel.app" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LukuMadness USA" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -46,6 +52,45 @@
       name="twitter:image"
       content="https://luku-madness.vercel.app/publiclukulogo.png"
     />
+
+    <!-- Local Business structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CafeOrCoffeeShop",
+        "name": "LukuMadness USA",
+        "image": "https://luku-madness.vercel.app/publiclukulogo.png",
+        "url": "https://luku-madness.vercel.app",
+        "telephone": "+1-914-358-4552",
+        "servesCuisine": "Greek",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "850 N Broadway",
+          "addressLocality": "White Plains",
+          "addressRegion": "NY",
+          "addressCountry": "US"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "07:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday", "Sunday"],
+            "opens": "08:00",
+            "closes": "20:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/lukumadnessusa",
+          "https://www.instagram.com/lukumadness.usa"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

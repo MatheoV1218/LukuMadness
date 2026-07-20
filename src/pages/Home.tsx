@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
+import { track } from "@vercel/analytics/react";
 import "../styles/home.css";
 
 import hero from "../assets/lukuhero.jpg";
@@ -16,8 +18,22 @@ import OrderModal from "../components/OrderModal";
 
 const Home = () => {
   const [showOrderModal, setShowOrderModal] = useState(false);
+  const [orderSource, setOrderSource] = useState("hero");
+
+  const openOrderModal = (label: "hero" | "cta") => {
+    track(`order_button_${label}`, { page: "/" });
+    setOrderSource(label);
+    setShowOrderModal(true);
+  };
+
   return (
     <>
+      <SEO
+        title="LukuMadness USA | Greek Desserts & Coffee in White Plains, NY"
+        description="Authentic Greek desserts, handcrafted coffee, and unforgettable café vibes at LukuMadness USA in White Plains, NY. Order online for pickup or delivery."
+        path="/"
+      />
+
       <Navbar />
 
       {/* HERO */}
@@ -38,13 +54,17 @@ const Home = () => {
           </p>
 
           <div className="hero-buttons">
-            <Link to="/menu" className="hero-btn">
+            <Link
+              to="/menu"
+              className="hero-btn"
+              onClick={() => track("view_menu_button_hero", { page: "/" })}
+            >
               View Menu
             </Link>
 
             <button
               className="hero-order-btn"
-              onClick={() => setShowOrderModal(true)}
+              onClick={() => openOrderModal("hero")}
             >
               Order Online
             </button>
@@ -134,7 +154,7 @@ const Home = () => {
 
           <button
             className="cta-order-btn"
-            onClick={() => setShowOrderModal(true)}
+            onClick={() => openOrderModal("cta")}
           >
             Order Now
           </button>
@@ -143,6 +163,7 @@ const Home = () => {
       <OrderModal
         isOpen={showOrderModal}
         onClose={() => setShowOrderModal(false)}
+        source={orderSource}
       />
 
       <Footer />

@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import "../styles/story.css";
 import storyhero from "../assets/lukuinside.jpg";
 import mixeditem from "../assets/mixeditem2.jpg";
@@ -11,6 +12,12 @@ import about3 from "../assets/About3.jpeg";
 const Story = () => {
   return (
     <>
+      <SEO
+        title="Our Story | LukuMadness USA"
+        description="Discover the story behind LukuMadness USA — a Greek café built around passion, hospitality, and handcrafted desserts in White Plains, NY."
+        path="/story"
+      />
+
       <Navbar />
 
       {/* HERO */}

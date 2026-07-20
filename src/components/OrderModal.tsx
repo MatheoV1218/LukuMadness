@@ -1,8 +1,11 @@
+import { useLocation } from "react-router-dom";
+import { track } from "@vercel/analytics/react";
 import "../styles/OrderModal.css";
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
+  source?: string;
 };
 
 const UBER_URL =
@@ -11,7 +14,9 @@ const UBER_URL =
 const GRUBHUB_URL =
   "https://www.grubhub.com/restaurant/lukumadness-850-n-broadway-white-plains/10872048";
 
-export default function OrderModal({ isOpen, onClose }: Props) {
+export default function OrderModal({ isOpen, onClose, source = "unknown" }: Props) {
+  const location = useLocation();
+
   if (!isOpen) return null;
 
   return (
@@ -20,7 +25,13 @@ export default function OrderModal({ isOpen, onClose }: Props) {
         className="order-modal"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="close-btn" onClick={onClose}>
+        <button
+          className="close-btn"
+          onClick={() => {
+            track("close_button_order_modal", { page: location.pathname, source });
+            onClose();
+          }}
+        >
           ×
         </button>
 
@@ -36,6 +47,9 @@ export default function OrderModal({ isOpen, onClose }: Props) {
             target="_blank"
             rel="noreferrer"
             className="uber-btn"
+            onClick={() =>
+              track("uber_eats_button_order_modal", { page: location.pathname, source })
+            }
           >
             Uber Eats
           </a>
@@ -45,6 +59,9 @@ export default function OrderModal({ isOpen, onClose }: Props) {
             target="_blank"
             rel="noreferrer"
             className="grubhub-btn"
+            onClick={() =>
+              track("grubhub_button_order_modal", { page: location.pathname, source })
+            }
           >
             Grubhub
           </a>

@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import { track } from "@vercel/analytics/react";
 import OrderModal from "./OrderModal";
 import logo from "../assets/lukulogo.png";
 
@@ -8,6 +9,7 @@ import "../styles/navbar.css";
 
 const Navbar = () => {
   const [showOrderModal, setShowOrderModal] = useState(false);
+  const [orderSource, setOrderSource] = useState("header");
   const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,6 +21,12 @@ const Navbar = () => {
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  const openOrderModal = (device: "desktop" | "mobile") => {
+    track("order_button_header", { page: location.pathname, device });
+    setOrderSource(`header_${device}`);
+    setShowOrderModal(true);
   };
 
   return (
@@ -61,7 +69,7 @@ const Navbar = () => {
 
               <button
                 className="order-btn"
-                onClick={() => setShowOrderModal(true)}
+                onClick={() => openOrderModal("desktop")}
               >
                 Order Online
               </button>
@@ -72,6 +80,9 @@ const Navbar = () => {
                 href="https://www.facebook.com/lukumadnessusa"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  track("facebook_icon_header", { page: location.pathname, device: "desktop" })
+                }
               >
                 <FaFacebook />
               </a>
@@ -80,6 +91,9 @@ const Navbar = () => {
                 href="https://www.instagram.com/lukumadness.usa"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  track("instagram_icon_header", { page: location.pathname, device: "desktop" })
+                }
               >
                 <FaInstagram />
               </a>
@@ -88,7 +102,13 @@ const Navbar = () => {
             {/* MOBILE BUTTON */}
             <button
               className="menu-toggle"
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={() => {
+                track("menu_toggle_button_header", {
+                  page: location.pathname,
+                  action: menuOpen ? "close" : "open",
+                });
+                setMenuOpen(!menuOpen);
+              }}
             >
               {menuOpen ? <FaTimes /> : <FaBars />}
             </button>
@@ -125,7 +145,7 @@ const Navbar = () => {
             className="mobile-order-btn"
             onClick={() => {
               setMenuOpen(false);
-              setShowOrderModal(true);
+              openOrderModal("mobile");
             }}
           >
             Order Online
@@ -136,6 +156,9 @@ const Navbar = () => {
               href="https://www.facebook.com/lukumadnessusa"
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                track("facebook_icon_header", { page: location.pathname, device: "mobile" })
+              }
             >
               <FaFacebook />
             </a>
@@ -144,6 +167,9 @@ const Navbar = () => {
               href="https://www.instagram.com/lukumadness.usa"
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                track("instagram_icon_header", { page: location.pathname, device: "mobile" })
+              }
             >
               <FaInstagram />
             </a>
@@ -153,6 +179,7 @@ const Navbar = () => {
       <OrderModal
         isOpen={showOrderModal}
         onClose={() => setShowOrderModal(false)}
+        source={orderSource}
       />
     </>
   );

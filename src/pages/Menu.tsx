@@ -2,6 +2,7 @@
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 import "../styles/menu.css";
 
@@ -10,6 +11,12 @@ import menuData from "../data/menuData";
 const Menu = () => {
   return (
     <>
+      <SEO
+        title="Menu | LukuMadness USA"
+        description="Explore our full menu of Greek desserts, lukumades, coffee, and drinks at LukuMadness USA in White Plains, NY."
+        path="/menu"
+      />
+
       <Navbar />
 
       <section className="menu-hero">

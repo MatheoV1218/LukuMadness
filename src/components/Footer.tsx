@@ -1,9 +1,13 @@
 import { FaFacebook, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { MdLocationOn, MdEmail } from "react-icons/md";
+import { useLocation } from "react-router-dom";
+import { track } from "@vercel/analytics/react";
 import "../styles/footer.css";
 import logo from "../assets/lukulogo.png";
 
 const Footer = () => {
+  const location = useLocation();
+
   return (
     <footer className="footer">
       <div className="footer-overlay"></div>
@@ -47,11 +51,21 @@ const Footer = () => {
           <h3>Follow Us</h3>
 
           <div className="footer-icons">
-            <a href="https://www.facebook.com/lukumadnessusa" target="_blank">
+            <a
+              href="https://www.facebook.com/lukumadnessusa"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("facebook_icon_footer", { page: location.pathname })}
+            >
               <FaFacebook />
             </a>
 
-            <a href="https://www.instagram.com/lukumadness.usa" target="_blank">
+            <a
+              href="https://www.instagram.com/lukumadness.usa"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("instagram_icon_footer", { page: location.pathname })}
+            >
               <FaInstagram />
             </a>
           </div>
