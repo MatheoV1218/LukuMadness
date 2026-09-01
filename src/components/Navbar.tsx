@@ -67,6 +67,14 @@ const Navbar = () => {
                 Menu
               </Link>
 
+              <Link
+                to="/app"
+                className={location.pathname === "/app" ? "active" : ""}
+                onClick={handleNavigation}
+              >
+                Get the App
+              </Link>
+
               <button
                 className="order-btn"
                 onClick={() => openOrderModal("desktop")}
@@ -139,6 +147,14 @@ const Navbar = () => {
             onClick={handleNavigation}
           >
             Menu
+          </Link>
+
+          <Link
+            to="/app"
+            className={location.pathname === "/app" ? "active" : ""}
+            onClick={handleNavigation}
+          >
+            Get the App
           </Link>
 
           <button
