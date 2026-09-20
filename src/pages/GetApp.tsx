@@ -9,13 +9,15 @@ import "../styles/getApp.css";
 import appIcon from "../assets/app-icon.png";
 
 const APP_STORE_URL = "https://apps.apple.com/app/id6795653647";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.lukumadnessusa.app";
 
 const GetApp = () => {
   return (
     <>
       <SEO
         title="Get the App | LukuMadness USA"
-        description="Download the LukuMadness USA app to order ahead, earn rewards, and never miss an offer. Available now on iPhone."
+        description="Download the LukuMadness USA app to order ahead, earn rewards, and never miss an offer. Available now on iPhone and Android."
         path="/app"
       />
 
@@ -50,19 +52,20 @@ const GetApp = () => {
             </span>
           </a>
 
-          <div className="store-button store-button-android" aria-disabled="true">
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="store-button store-button-android"
+            onClick={() => track("get_app_android_click", { page: "/app" })}
+          >
             <FaGooglePlay size={22} />
             <span>
-              <small>Coming Soon to</small>
-              Android
+              <small>Get it on</small>
+              Google Play
             </span>
-          </div>
+          </a>
         </div>
-
-        <p className="get-app-note">
-          The LukuMadness USA app is available now for iPhone. Android is on the
-          way — check back soon!
-        </p>
 
         <div className="get-app-features">
           <div className="get-app-feature">

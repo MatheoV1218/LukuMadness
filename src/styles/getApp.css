@@ -70,7 +70,7 @@
   justify-content: center;
   gap: 1rem;
 
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 }
 
 .store-button {
@@ -121,19 +121,15 @@
 }
 
 .store-button-android {
-  background: #e9e4da;
-  color: #8a8378;
+  background: #111;
+  color: white;
 
-  cursor: not-allowed;
+  box-shadow: 0 6px 18px rgba(17, 17, 17, 0.25);
 }
 
-.get-app-note {
-  color: #8a7f6e;
-  font-size: 0.85rem;
-
-  max-width: 380px;
-
-  margin-bottom: 4rem;
+.store-button-android:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.32);
 }
 
 .get-app-features {
