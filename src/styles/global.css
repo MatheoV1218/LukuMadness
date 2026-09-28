@@ -56,6 +56,8 @@
 }
 
 html {
+  /* Nothing should ever be able to scroll the page sideways on phones. */
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;

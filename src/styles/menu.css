@@ -112,10 +112,11 @@
   padding-block: 12px;
   overflow-x: auto;
   scrollbar-width: none;
-  mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
-  padding-inline: 24px;
-  margin-inline: -24px;
+  /* Bleed to the screen edges by exactly the page gutter so it never overflows. */
+  mask-image: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
+  padding-inline: var(--gutter);
+  margin-inline: calc(var(--gutter) * -1);
 }
 
 .menu-chips__track::-webkit-scrollbar {
