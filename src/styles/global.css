@@ -584,6 +584,9 @@ h2 em,
   display: flex;
   width: max-content;
   animation: marquee 38s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .marquee__list {
@@ -610,8 +613,11 @@ h2 em,
 }
 
 @keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -779,5 +785,11 @@ h2 em,
   .reveal-ready .reveal:not(.is-visible) {
     opacity: 1;
     transform: none;
+  }
+
+  /* Keep the ticker as a slow, gentle drift rather than freezing it. */
+  .marquee__track {
+    animation-duration: 90s !important;
+    animation-iteration-count: infinite !important;
   }
 }
