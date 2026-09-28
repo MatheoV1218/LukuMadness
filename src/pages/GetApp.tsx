@@ -1,93 +1,74 @@
-import { FaApple, FaGooglePlay } from "react-icons/fa";
-import { HiOutlineClock, HiOutlineGift, HiOutlineTag } from "react-icons/hi";
-import { track } from "@vercel/analytics/react";
-
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import SEO from "../components/SEO";
+import { LuClock, LuGift, LuTag } from "react-icons/lu";
+import StoreButtons from "../components/StoreButtons";
+import { delay } from "../utils/style";
 import "../styles/getApp.css";
-import appIcon from "../assets/app-icon.png";
+import appIcon from "../assets/img/app-icon.webp";
 
-const APP_STORE_URL = "https://apps.apple.com/app/id6795653647";
-const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.lukumadnessusa.app";
+const FEATURES = [
+  { icon: LuClock, title: "Order Ahead", text: "Skip the line — order and pay from your phone." },
+  { icon: LuGift, title: "Earn Rewards", text: "Collect points on every purchase, redeem for discounts." },
+  { icon: LuTag, title: "Exclusive Offers", text: "See our latest deals as soon as they drop." },
+];
 
 const GetApp = () => {
   return (
-    <>
-      <SEO
-        title="Get the App | LukuMadness USA"
-        description="Download the LukuMadness USA app to order ahead, earn rewards, and never miss an offer. Available now on iPhone and Android."
-        path="/app"
-      />
+    <section className="get-app">
+      <div className="get-app__glow" aria-hidden />
+      <div className="container get-app__grid">
+        <div className="get-app__copy">
+          <p className="get-app__badge hero-anim">
+            <span className="status-pill__dot" aria-hidden /> Now available
+          </p>
+          <h1 className="display-hero hero-anim" style={delay(80)}>
+            Get the <em>app</em>
+          </h1>
+          <p className="get-app__lead hero-anim" style={delay(160)}>
+            Order ahead for pickup, earn rewards on every purchase, and never miss a new offer — right
+            from your phone.
+          </p>
 
-      <Navbar />
+          <StoreButtons page="/app" className="hero-anim get-app__buttons" />
 
-      <section className="get-app-hero">
-        <div className="get-app-icon-wrap">
-          <img src={appIcon} alt="LukuMadness USA app icon" className="get-app-icon" />
+          <ul className="get-app__features">
+            {FEATURES.map(({ icon: Icon, title, text }, i) => (
+              <li key={title} className="hero-anim" style={delay(320 + i * 80)}>
+                <span className="get-app__feature-icon">
+                  <Icon aria-hidden />
+                </span>
+                <span>
+                  <strong>{title}</strong>
+                  {text}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <span className="get-app-eyebrow">Now Available</span>
-
-        <h1>Get The App</h1>
-
-        <p className="get-app-subtitle">
-          Order ahead for pickup, earn rewards on every purchase, and never miss a
-          new offer — right from your phone.
-        </p>
-
-        <div className="get-app-buttons">
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="store-button store-button-ios"
-            onClick={() => track("get_app_ios_click", { page: "/app" })}
-          >
-            <FaApple size={26} />
+        <div className="get-app__visual hero-anim" style={delay(200)} aria-hidden>
+          <div className="phone">
+            <div className="phone__notch" />
+            <div className="phone__screen">
+              <img src={appIcon} alt="" width={512} height={512} className="phone__icon" />
+              <p className="phone__title">LukuMadness USA</p>
+              <p className="phone__sub">Cafe · Greek Delights</p>
+              <div className="phone__cta">Start your order</div>
+            </div>
+          </div>
+          <div className="float-card float-card--one">
+            <LuGift aria-hidden />
             <span>
-              <small>Download on the</small>
-              App Store
+              <strong>Rewards</strong>on every order
             </span>
-          </a>
-
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="store-button store-button-android"
-            onClick={() => track("get_app_android_click", { page: "/app" })}
-          >
-            <FaGooglePlay size={22} />
+          </div>
+          <div className="float-card float-card--two">
+            <LuClock aria-hidden />
             <span>
-              <small>Get it on</small>
-              Google Play
+              <strong>Order ahead</strong>skip the line
             </span>
-          </a>
-        </div>
-
-        <div className="get-app-features">
-          <div className="get-app-feature">
-            <HiOutlineClock size={28} />
-            <h3>Order Ahead</h3>
-            <p>Skip the line — order and pay from your phone.</p>
-          </div>
-          <div className="get-app-feature">
-            <HiOutlineGift size={28} />
-            <h3>Earn Rewards</h3>
-            <p>Collect points on every purchase, redeem for discounts.</p>
-          </div>
-          <div className="get-app-feature">
-            <HiOutlineTag size={28} />
-            <h3>Exclusive Offers</h3>
-            <p>See our latest deals as soon as they drop.</p>
           </div>
         </div>
-      </section>
-
-      <Footer />
-    </>
+      </div>
+    </section>
   );
 };
 

@@ -1,15 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { Analytics } from "@vercel/analytics/react";
-import { HelmetProvider } from "react-helmet-async";
-import './index.css'
-import App from './App.tsx'
+import App from "./App.tsx";
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById("root")!;
+const app = (
   <StrictMode>
-    <HelmetProvider>
-      <App />
-      <Analytics />
-    </HelmetProvider>
-  </StrictMode>,
-)
+    <App />
+    <Analytics />
+  </StrictMode>
+);
+
+// Production pages are prerendered at build time, so hydrate them; `vite dev` serves an empty root.
+if (container.firstElementChild) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

@@ -1,55 +1,57 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import SEO from "../components/SEO";
+import { SITE } from "../data/site";
 import "../styles/deleteAccount.css";
+
+const STEPS = [
+  "Open the LukuMadness USA app",
+  "Go to the Account tab",
+  "Scroll down and tap \"Delete My Account\"",
+  "Confirm the deletion",
+];
 
 const DeleteAccount = () => {
   return (
     <>
-      <SEO
-        title="Delete Your Account | LukuMadness USA"
-        description="Instructions for deleting your LukuMadness USA account and personal data."
-        path="/delete-account"
-      />
-
-      <Navbar />
-
-      <section className="delete-account-section">
-        <div className="delete-account-content">
-          <h1>Delete Your Account</h1>
-
-          <p>
-            To delete your LukuMadness USA account and personal data directly
-            from the app:
-          </p>
-
-          <ol>
-            <li>Open the LukuMadness USA app</li>
-            <li>Go to the Account tab</li>
-            <li>Scroll down and tap "Delete My Account"</li>
-            <li>Confirm the deletion</li>
-          </ol>
-
-          <p>
-            This permanently removes your name, email address, and phone
-            number from our systems. Your past order history is kept in
-            anonymized form for tax record-keeping, with no link back to you.
-            Any active reward code is forfeited. This action cannot be undone.
-          </p>
-
-          <p>
-            If you no longer have the app installed and would like to request
-            deletion of your account and data, email us at{" "}
-            <a href="mailto:info@lukumadnessusa.com">
-              info@lukumadnessusa.com
-            </a>{" "}
-            from the email address associated with your account, and we will
-            process your request.
-          </p>
+      <section className="doc-hero">
+        <div className="container doc-hero__inner">
+          <p className="eyebrow eyebrow--light">Account &amp; privacy</p>
+          <h1 className="display-1">Delete your account</h1>
         </div>
       </section>
 
-      <Footer />
+      <section className="section section--paper doc">
+        <div className="container doc__inner">
+          <p className="doc__lead">
+            To delete your LukuMadness USA account and personal data directly from the app:
+          </p>
+
+          <ol className="doc__steps">
+            {STEPS.map((step, i) => (
+              <li key={step}>
+                <span className="doc__step-num">{i + 1}</span>
+                {step}
+              </li>
+            ))}
+          </ol>
+
+          <div className="doc__card">
+            <h2>What gets deleted</h2>
+            <p>
+              This permanently removes your name, email address, and phone number from our systems.
+              Your past order history is kept in anonymized form for tax record-keeping, with no link
+              back to you. Any active reward code is forfeited. This action cannot be undone.
+            </p>
+          </div>
+
+          <div className="doc__card">
+            <h2>Don't have the app anymore?</h2>
+            <p>
+              If you no longer have the app installed and would like to request deletion of your
+              account and data, email us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a> from the
+              email address associated with your account, and we will process your request.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

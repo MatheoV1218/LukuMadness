@@ -1,164 +1,183 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
+import { LuArrowRight, LuArrowUpRight, LuChefHat, LuCoffee, LuHeart } from "react-icons/lu";
+import { SITE } from "../data/site";
+import { delay } from "../utils/style";
 import "../styles/story.css";
-import storyhero from "../assets/lukuinside.jpg";
-import mixeditem from "../assets/mixeditem2.jpg";
-import about1 from "../assets/About1.jpeg";
-import about2 from "../assets/About2.jpeg";
-import about3 from "../assets/About3.jpeg";
-// comment for vercel deployment
+
+import storyHero from "../assets/img/cafe-interior.webp";
+import banner from "../assets/img/hero-lukumades.webp";
+import about1 from "../assets/img/about-iced-latte.webp";
+import about2 from "../assets/img/about-neon-sign.webp";
+import about3 from "../assets/img/about-coffee-wall.webp";
 
 const Story = () => {
   return (
     <>
-      <SEO
-        title="Our Story | LukuMadness USA"
-        description="Discover the story behind LukuMadness USA — a Greek café built around passion, hospitality, and handcrafted desserts in White Plains, NY."
-        path="/story"
-      />
-
-      <Navbar />
-
       {/* HERO */}
-      <section
-        className="story-hero"
-        style={{
-          backgroundImage: `url(${storyhero})`,
-        }}
-      >
-        <div className="story-hero-overlay"></div>
-
-        <div className="story-hero-content">
-          <span>Our Story</span>
-
-          <h1>
-            More Than A Café.
-            <br />A Greek Experience.
+      <section className="page-hero story-hero">
+        <img src={storyHero} alt="" className="page-hero__bg" width={1512} height={1008} fetchPriority="high" />
+        <div className="page-hero__overlay" aria-hidden />
+        <div className="container page-hero__content">
+          <p className="eyebrow eyebrow--light hero-anim">Our Story</p>
+          <h1 className="display-1 hero-anim" style={delay(80)}>
+            More than a café. <em>A Greek experience.</em>
           </h1>
-
-          <p>
-            Built around passion, hospitality, handcrafted desserts, and
-            unforgettable moments.
+          <p className="page-hero__lead hero-anim" style={delay(160)}>
+            Built around passion, hospitality, handcrafted desserts, and unforgettable moments.
           </p>
         </div>
       </section>
 
-      {/* SECTION 1 */}
-      <section className="story-section">
-        <div className="story-grid">
-          <div className="story-text">
-            <h2>Our story</h2>
-
+      {/* CHAPTER 1 */}
+      <section className="section section--paper chapter">
+        <div className="container chapter__grid">
+          <div className="chapter__text reveal">
+            <span className="chapter__num">01</span>
+            <h2 className="display-2">
+              Our <em>story</em>
+            </h2>
             <p>
-              Indulge in the exquisite flavors of Greece at Lukumadness USA, the
-              ultimate cafe and Greek desserts destination. Get ready to embark
-              on a delightful culinary journey that will take your taste buds on
-              a Mediterranean adventure like no other.
+              Indulge in the exquisite flavors of Greece at Lukumadness USA, the ultimate cafe and Greek
+              desserts destination. Get ready to embark on a delightful culinary journey that will take
+              your taste buds on a Mediterranean adventure like no other.
             </p>
-
             <p>
-              At Lukumadness USA, we are passionate about bringing the authentic
-              taste of Greece to the heart of the USA. Our cafe is a haven for
-              dessert enthusiasts and anyone with a sweet tooth looking to savor
-              traditional Greek delicacies. Whether you’re a seasoned fan of
-              Greek cuisine or new to the flavors, our menu has something to
-              satisfy every palate.
+              At Lukumadness USA, we are passionate about bringing the authentic taste of Greece to the
+              heart of the USA. Our cafe is a haven for dessert enthusiasts and anyone with a sweet tooth
+              looking to savor traditional Greek delicacies. Whether you’re a seasoned fan of Greek
+              cuisine or new to the flavors, our menu has something to satisfy every palate.
             </p>
           </div>
+          <figure className="chapter__image reveal">
+            <div className="arch">
+              <img src={about1} alt="An iced latte in a LukuMadness cup on the café counter" width={1000} height={1500} loading="lazy" />
+            </div>
+          </figure>
+        </div>
+      </section>
 
-          <div className="story-image">
-            <img src={about1} alt="Inside LukuMadness cafe" />
+      {/* CHAPTER 2 */}
+      <section className="section section--cream chapter">
+        <div className="container chapter__grid chapter__grid--reverse">
+          <figure className="chapter__image reveal">
+            <div className="arch">
+              <img src={about2} alt="The glowing LukuMadness neon sign above the espresso bar" width={1000} height={1500} loading="lazy" />
+            </div>
+          </figure>
+          <div className="chapter__text reveal">
+            <span className="chapter__num">02</span>
+            <h2 className="display-2">
+              Handcrafted <em>with passion</em>
+            </h2>
+            <p>
+              Every dessert is prepared with care, every coffee is crafted with precision, and every
+              guest is treated like family. From our signature chocolate-drizzled lukumades to our
+              premium pistachio creations, our menu was designed to offer something truly different.
+            </p>
+            <p>
+              We believe food should do more than taste amazing — it should create memories. Every
+              plate that leaves our kitchen represents our passion for quality, creativity, and
+              authentic flavor.
+            </p>
+            <p>
+              We focus heavily on fresh ingredients, bold flavors, and attention to detail in every part
+              of the experience.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2 */}
-      <section className="story-section alt-section">
-        <div className="story-grid reverse">
-          <div className="story-image">
-            <img src={about2} alt="Handcrafted Greek desserts" />
-          </div>
-
-          <div className="story-text">
-            <h2>Handcrafted With Passion</h2>
-
-            <p>
-              Every dessert is prepared with care, every coffee is crafted with
-              precision, and every guest is treated like family. From our
-              signature chocolate-drizzled lukumades to our premium pistachio
-              creations, our menu was designed to offer something truly
-              different.
-            </p>
-
-            <p>
-              We believe food should do more than taste amazing — it should
-              create memories. Every plate that leaves our kitchen represents
-              our passion for quality, creativity, and authentic flavor.
-            </p>
-
-            <p>
-              We focus heavily on fresh ingredients, bold flavors, and attention
-              to detail in every part of the experience.
-            </p>
-          </div>
+      {/* VALUES */}
+      <section className="section section--ink values" aria-label="What we stand for">
+        <div className="container">
+          <ul className="values__grid">
+            <li className="reveal">
+              <LuChefHat aria-hidden />
+              <h3>Prepared with care</h3>
+              <p>Fresh ingredients, bold flavors and attention to detail in every dessert.</p>
+            </li>
+            <li className="reveal">
+              <LuCoffee aria-hidden />
+              <h3>Crafted with precision</h3>
+              <p>From Greek frappé to espresso, every coffee is made the way it should be.</p>
+            </li>
+            <li className="reveal">
+              <LuHeart aria-hidden />
+              <h3>Treated like family</h3>
+              <p>Hospitality is the heart of what we do — every guest, every visit.</p>
+            </li>
+          </ul>
         </div>
       </section>
 
-      {/* FULL IMAGE BREAK */}
-      <section
-        className="story-banner"
-        style={{
-          backgroundImage: `
-      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-      url(${mixeditem})
-    `,
-        }}
-      >
-        <div className="story-banner-overlay"></div>
-
-        <div className="story-banner-content">
-          <h2>Built Around Community</h2>
-
-          <p>
-            More than a dessert shop — LukuMadness was built to bring people
-            together.
-          </p>
+      {/* BANNER */}
+      <section className="story-banner">
+        <img src={banner} alt="" className="story-banner__bg" width={934} height={1063} loading="lazy" />
+        <div className="story-banner__overlay" aria-hidden />
+        <div className="container story-banner__content reveal">
+          <h2 className="display-1">
+            Built around <em>community</em>
+          </h2>
+          <p>More than a dessert shop — LukuMadness was built to bring people together.</p>
         </div>
       </section>
 
-      {/* SECTION 3 */}
-      <section className="story-section">
-        <div className="story-grid">
-          <div className="story-text">
-            <h2>The LukuMadness Vision</h2>
-
+      {/* CHAPTER 3 */}
+      <section className="section section--paper chapter">
+        <div className="container chapter__grid">
+          <div className="chapter__text reveal">
+            <span className="chapter__num">03</span>
+            <h2 className="display-2">
+              The LukuMadness <em>vision</em>
+            </h2>
             <p>
-              As our community continues to grow, so does our vision.
-              LukuMadness is more than just a café — it’s an experience built
-              around energy, hospitality, creativity, and unforgettable flavors.
+              As our community continues to grow, so does our vision. LukuMadness is more than just a
+              café — it’s an experience built around energy, hospitality, creativity, and unforgettable
+              flavors.
             </p>
-
             <p>
-              Whether you're stopping in for your morning coffee, grabbing
-              dessert late at night with friends, or discovering Greek flavors
-              for the first time, we’re proud to welcome you into the
-              LukuMadness family.
+              Whether you're stopping in for your morning coffee, grabbing dessert late at night with
+              friends, or discovering Greek flavors for the first time, we’re proud to welcome you into
+              the LukuMadness family.
             </p>
-
             <p>
-              Our goal has always been simple: create a place where people feel
-              connected, comfortable, and excited to come back again and again.
+              Our goal has always been simple: create a place where people feel connected, comfortable,
+              and excited to come back again and again.
             </p>
           </div>
-
-          <div className="story-image">
-            <img src={about3} alt="LukuMadness coffee and community" />
-          </div>
+          <figure className="chapter__image reveal">
+            <div className="arch">
+              <img
+                src={about3}
+                alt="The café's gold-lettered wall: Bad day? Coffee. Good day? Coffee."
+                width={1000}
+                height={1500}
+                loading="lazy"
+              />
+            </div>
+          </figure>
         </div>
       </section>
 
-      <Footer />
+      {/* QUOTE + CTA */}
+      <section className="section section--cream story-quote">
+        <div className="container reveal">
+          <blockquote className="story-quote__text">
+            <p>
+              Bad day? <em>Coffee.</em> Good day? <em>Coffee.</em>
+            </p>
+            <footer>— Written on our wall, lived every day</footer>
+          </blockquote>
+          <div className="story-quote__actions">
+            <Link to="/menu" className="btn btn--ink btn--lg">
+              Explore the menu <LuArrowRight aria-hidden />
+            </Link>
+            <a href={SITE.mapsUrl} target="_blank" rel="noreferrer" className="btn btn--outline btn--lg">
+              Plan your visit <LuArrowUpRight aria-hidden />
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

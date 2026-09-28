@@ -1,203 +1,128 @@
-import { Link, useLocation } from "react-router-dom";
-import { FaFacebook, FaInstagram, FaBars, FaTimes } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { track } from "@vercel/analytics/react";
-import OrderModal from "./OrderModal";
-import logo from "../assets/lukulogo.png";
-
+import { useOrder } from "./order/orderContext";
+import { useScrolled } from "../hooks/useScrolled";
+import { SITE, fullAddress } from "../data/site";
+import { NAV_LINKS } from "../data/nav";
+import logo from "../assets/img/logo.webp";
 import "../styles/navbar.css";
 
 const Navbar = () => {
-  const [showOrderModal, setShowOrderModal] = useState(false);
-  const [orderSource, setOrderSource] = useState("header");
   const location = useLocation();
-
+  const { openOrder } = useOrder();
+  const scrolled = useScrolled(24);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleNavigation = () => {
-    setMenuOpen(false);
+  // Lock page scroll while the mobile menu is open; Escape closes it.
+  useEffect(() => {
+    document.documentElement.classList.toggle("scroll-locked", menuOpen);
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const openOrderModal = (device: "desktop" | "mobile") => {
+  const handleOrder = (device: "desktop" | "mobile") => {
     track("order_button_header", { page: location.pathname, device });
-    setOrderSource(`header_${device}`);
-    setShowOrderModal(true);
+    setMenuOpen(false);
+    openOrder(`header_${device}`);
   };
+
+  const socialLinks = (device: "desktop" | "mobile") => (
+    <>
+      <a
+        href={SITE.social.facebook}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="LukuMadness on Facebook"
+        onClick={() => track("facebook_icon_header", { page: location.pathname, device })}
+      >
+        <FaFacebookF aria-hidden />
+      </a>
+      <a
+        href={SITE.social.instagram}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="LukuMadness on Instagram"
+        onClick={() => track("instagram_icon_header", { page: location.pathname, device })}
+      >
+        <FaInstagram aria-hidden />
+      </a>
+    </>
+  );
 
   return (
-    <>
-      <nav className="navbar">
-        <div className="navbar-container">
-          {/* LEFT SIDE */}
-          <div className="navbar-left">
-            <Link to="/" className="logo" onClick={handleNavigation}>
-              <img src={logo} alt="LukuMadness Logo" />
-            </Link>
-          </div>
+    <header className={`nav ${scrolled || menuOpen ? "nav--solid" : ""} ${menuOpen ? "nav--open" : ""}`}>
+      <div className="nav__bar container">
+        <Link to="/" className="nav__logo" aria-label="LukuMadness USA — home" onClick={() => setMenuOpen(false)}>
+          <img src={logo} alt="" width={351} height={326} />
+        </Link>
 
-          {/* DESKTOP NAV */}
-          <div className="navbar-right">
-            <div className="nav-links desktop-nav">
-              <Link
-                to="/"
-                className={location.pathname === "/" ? "active" : ""}
-                onClick={handleNavigation}
-              >
-                Home
-              </Link>
+        <nav className="nav__links" aria-label="Main">
+          {NAV_LINKS.map((link) => (
+            <NavLink key={link.to} to={link.to} end className="nav__link">
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
 
-              <Link
-                to="/story"
-                className={location.pathname === "/story" ? "active" : ""}
-                onClick={handleNavigation}
-              >
-                Our Story
-              </Link>
-
-              <Link
-                to="/menu"
-                className={location.pathname === "/menu" ? "active" : ""}
-                onClick={handleNavigation}
-              >
-                Menu
-              </Link>
-
-              <Link
-                to="/app"
-                className={location.pathname === "/app" ? "active" : ""}
-                onClick={handleNavigation}
-              >
-                Get the App
-              </Link>
-
-              <button
-                className="order-btn"
-                onClick={() => openOrderModal("desktop")}
-              >
-                Order Online
-              </button>
-            </div>
-
-            <div className="socials desktop-socials">
-              <a
-                href="https://www.facebook.com/lukumadnessusa"
-                target="_blank"
-                rel="noreferrer"
-                onClick={() =>
-                  track("facebook_icon_header", { page: location.pathname, device: "desktop" })
-                }
-              >
-                <FaFacebook />
-              </a>
-
-              <a
-                href="https://www.instagram.com/lukumadness.usa"
-                target="_blank"
-                rel="noreferrer"
-                onClick={() =>
-                  track("instagram_icon_header", { page: location.pathname, device: "desktop" })
-                }
-              >
-                <FaInstagram />
-              </a>
-            </div>
-
-            {/* MOBILE BUTTON */}
-            <button
-              className="menu-toggle"
-              onClick={() => {
-                track("menu_toggle_button_header", {
-                  page: location.pathname,
-                  action: menuOpen ? "close" : "open",
-                });
-                setMenuOpen(!menuOpen);
-              }}
-            >
-              {menuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
-        </div>
-
-        {/* MOBILE MENU */}
-        <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-          <Link
-            to="/"
-            className={location.pathname === "/" ? "active" : ""}
-            onClick={handleNavigation}
-          >
-            Home
-          </Link>
-
-          <Link
-            to="/story"
-            className={location.pathname === "/story" ? "active" : ""}
-            onClick={handleNavigation}
-          >
-            Our Story
-          </Link>
-
-          <Link
-            to="/menu"
-            className={location.pathname === "/menu" ? "active" : ""}
-            onClick={handleNavigation}
-          >
-            Menu
-          </Link>
-
-          <Link
-            to="/app"
-            className={location.pathname === "/app" ? "active" : ""}
-            onClick={handleNavigation}
-          >
-            Get the App
-          </Link>
-
-          <button
-            className="mobile-order-btn"
-            onClick={() => {
-              setMenuOpen(false);
-              openOrderModal("mobile");
-            }}
-          >
+        <div className="nav__actions">
+          <div className="nav__socials">{socialLinks("desktop")}</div>
+          <button type="button" className="btn btn--honey btn--sm nav__order" onClick={() => handleOrder("desktop")}>
             Order Online
           </button>
+          <button
+            type="button"
+            className="nav__toggle"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => {
+              track("menu_toggle_button_header", {
+                page: location.pathname,
+                action: menuOpen ? "close" : "open",
+              });
+              setMenuOpen((open) => !open);
+            }}
+          >
+            <span className="nav__toggle-line" />
+            <span className="nav__toggle-line" />
+          </button>
+        </div>
+      </div>
 
-          <div className="mobile-socials">
-            <a
-              href="https://www.facebook.com/lukumadnessusa"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() =>
-                track("facebook_icon_header", { page: location.pathname, device: "mobile" })
-              }
+      <div id="mobile-menu" className={`mobile-menu ${menuOpen ? "is-open" : ""}`} inert={!menuOpen}>
+        <nav className="mobile-menu__links" aria-label="Mobile">
+          {NAV_LINKS.map((link, i) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end
+              className="mobile-menu__link"
+              onClick={() => setMenuOpen(false)}
+              style={{ transitionDelay: `${80 + i * 55}ms` }}
             >
-              <FaFacebook />
-            </a>
+              <span className="mobile-menu__index">0{i + 1}</span>
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
 
-            <a
-              href="https://www.instagram.com/lukumadness.usa"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() =>
-                track("instagram_icon_header", { page: location.pathname, device: "mobile" })
-              }
-            >
-              <FaInstagram />
+        <div className="mobile-menu__footer">
+          <button type="button" className="btn btn--honey btn--lg btn--block" onClick={() => handleOrder("mobile")}>
+            Order Online
+          </button>
+          <div className="mobile-menu__meta">
+            <a href={SITE.mapsUrl} target="_blank" rel="noreferrer">
+              {fullAddress}
             </a>
+            <div className="mobile-menu__socials">{socialLinks("mobile")}</div>
           </div>
         </div>
-      </nav>
-      <OrderModal
-        isOpen={showOrderModal}
-        onClose={() => setShowOrderModal(false)}
-        source={orderSource}
-      />
-    </>
+      </div>
+    </header>
   );
 };
 

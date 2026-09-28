@@ -1,0 +1,148 @@
+.order-dialog {
+  margin: auto;
+  width: min(520px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgba(244, 180, 58, 0.22), transparent 60%),
+    var(--ink);
+  color: var(--on-dark);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden auto;
+}
+
+.order-dialog::backdrop {
+  background: rgba(18, 13, 9, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.order-dialog[open] {
+  animation: dialog-in 0.4s var(--ease);
+}
+
+.order-dialog__panel {
+  position: relative;
+  padding: clamp(28px, 6vw, 44px);
+}
+
+.order-dialog__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-dark);
+  color: var(--on-dark);
+  font-size: 1.2rem;
+  transition: background-color 0.2s;
+}
+
+.order-dialog__close:hover {
+  background: rgba(247, 239, 226, 0.1);
+}
+
+.order-dialog .eyebrow {
+  color: var(--honey);
+  margin-bottom: 14px;
+}
+
+.order-dialog__title {
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  padding-right: 32px;
+}
+
+.order-dialog__title em {
+  display: block;
+}
+
+.order-dialog__text {
+  margin: 14px 0 28px;
+  color: var(--on-dark-muted);
+}
+
+.order-dialog__options {
+  display: grid;
+  gap: 12px;
+}
+
+.order-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px 16px 16px;
+  border-radius: 18px;
+  background: rgba(247, 239, 226, 0.06);
+  border: 1px solid var(--line-dark);
+  transition:
+    transform 0.25s var(--ease),
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.order-option:hover {
+  transform: translateY(-2px);
+  border-color: var(--honey);
+  background: rgba(247, 239, 226, 0.1);
+}
+
+.order-option__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.order-option--uber .order-option__icon {
+  background: #06c167;
+  color: #000;
+}
+
+.order-option--grubhub .order-option__icon {
+  background: #ff8000;
+  color: #fff;
+}
+
+.order-option__label {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.order-option__label small {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--on-dark-muted);
+}
+
+.order-option__arrow {
+  font-size: 1.3rem;
+  color: var(--honey);
+  transition: transform 0.25s var(--ease);
+}
+
+.order-option:hover .order-option__arrow {
+  transform: translate(3px, -3px);
+}
+
+.order-dialog__footnote {
+  margin-top: 24px;
+  font-size: 0.875rem;
+  color: var(--on-dark-muted);
+  text-align: center;
+}
+
+.order-dialog__footnote a {
+  color: var(--honey);
+  font-weight: 700;
+}

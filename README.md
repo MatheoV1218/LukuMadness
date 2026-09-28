@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# LukuMadness USA — website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing site for LukuMadness, a Greek café in White Plains, NY. React 19 + Vite + React Router, deployed on Vercel.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev      # local dev server (client-rendered)
+npm run build    # typecheck → client build → server build → prerender
+npm run preview  # serve dist/ (note: doesn't mimic Vercel's clean URLs)
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## How the build works
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Every route is **prerendered to static HTML** at build time so search engines and link previews
+(iMessage, Facebook, etc.) get real content and per-page meta tags; React then hydrates it.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. `vite build` — client bundle into `dist/`
+2. `vite build --ssr src/entry-server.tsx` — server renderer into `dist-ssr/`
+3. `scripts/prerender.mjs` — writes `dist/index.html`, `menu.html`, `story.html`, `app.html`,
+   `delete-account.html`, `404.html` and `sitemap.xml`
+
+`vercel.json` uses `cleanUrls`, so `/menu` serves `menu.html`, and unknown paths get `404.html` with a real 404 status.
+
+## Where things live
+
+| What | File |
+| --- | --- |
+| Address, phone, hours, social + ordering links | `src/data/site.ts` |
+| Menu items, prices, photos | `src/data/menuData.ts` |
+| Page titles, descriptions, share images, structured data | `src/seo/meta.ts` |
+| Design tokens (colors, fonts, spacing) | `src/styles/global.css` |
+| Share images (1200×630) | `public/og/` |
+
+**Adding a route:** add it in `src/App.tsx` *and* add its meta to `PAGES` in `src/seo/meta.ts`
+(that's what the prerenderer and sitemap iterate over).
+
+**Adding a menu photo:** drop an optimized `.webp` (≈1200px wide) in `src/assets/img/`, import it at the
+top of `menuData.ts` and set `image:` on the item. Items without a photo render as a clean text row.

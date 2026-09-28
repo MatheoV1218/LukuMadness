@@ -1,63 +1,72 @@
-.delete-account-section {
-  padding: 7rem 2rem;
-
-  background: #f8f5f0;
-
-  min-height: 60vh;
+.doc-hero {
+  padding: calc(var(--nav-h) + clamp(56px, 9vw, 110px)) 0 clamp(48px, 7vw, 80px);
+  background:
+    radial-gradient(50% 90% at 100% 0%, rgba(244, 180, 58, 0.18), transparent 70%),
+    var(--ink);
+  color: var(--on-dark);
 }
 
-.delete-account-content {
-  width: 100%;
-  max-width: 800px;
-
-  margin: auto;
+.doc__inner {
+  max-width: calc(760px + var(--gutter) * 2);
 }
 
-.delete-account-content h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-
-  line-height: 0.95;
-
-  margin-bottom: 2rem;
-
-  color: #111;
+.doc__lead {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.delete-account-content p {
-  color: #555;
+.doc__steps {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 40px;
+}
 
-  line-height: 1.9;
-
+.doc__steps li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--line);
   font-size: 1.05rem;
-
-  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
-.delete-account-content ol {
-  color: #555;
-
-  line-height: 1.9;
-
-  font-size: 1.05rem;
-
-  margin: 0 0 1.5rem 1.5rem;
+.doc__step-num {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--honey);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
 }
 
-.delete-account-content li {
-  margin-bottom: 0.5rem;
+.doc__card {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
 }
 
-.delete-account-content a {
-  color: inherit;
+.doc__card h2 {
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+}
+
+.doc__card p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.doc__card a {
+  color: var(--honey-ink);
+  font-weight: 700;
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .delete-account-section {
-    padding: 5rem 1.5rem;
-  }
-
-  .delete-account-content h1 {
-    font-size: 2.4rem;
-  }
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
 }
