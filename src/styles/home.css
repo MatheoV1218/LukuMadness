@@ -792,3 +792,28 @@
 .cta__content h2 em {
   display: block;
 }
+
+/* Fallback when the browser blocks autoplay (e.g. iPhone Low Power Mode) */
+.video-play {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--honey);
+  color: var(--ink);
+  font-size: 1.3rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s var(--ease);
+}
+
+.video-play:hover {
+  transform: scale(1.08);
+}
+
+.video-play svg {
+  margin-left: 3px;
+}
